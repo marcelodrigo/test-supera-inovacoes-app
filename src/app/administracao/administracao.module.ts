@@ -6,18 +6,17 @@ import { AdministracaoRoutingModule } from './administracao-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './login/login.component';
-import { AlertComponent } from '../core/component/alert/alert.component';
-
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    AlertComponent
+    LoginComponent
   ],
   imports: [
     CommonModule,
     AdministracaoRoutingModule,
     ReactiveFormsModule,
+    CoreModule
   ]
 })
 export class AdministracaoModule { }
