@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  loginURL: "https://dev.sitemercado.com.br/api/login"
 };
