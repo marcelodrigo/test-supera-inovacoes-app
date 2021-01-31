@@ -10,29 +10,10 @@ import { LoginComponent } from './login/login.component';
         {
             path: 'administracao',
             children: [
-                // {
-                //     path: '',
-                //     component: AuthenticatedTemplateComponent,
-                //     canActivate: [AutenticacaoGuard],
-                //     children: [
-                //         {
-                //             path: 'auditoria',
-                //             component: AuditoriaComponent
-                //         },
-                //     ]
-                // },
                 {
                     path: 'login',
                     component: LoginComponent
-                },
-                // {
-                //     path: 'alterar-senha-provisoria',
-                //     component: AlterarSenhaProvisoriaComponent
-                // },
-                // {
-                //     path: 'recuperar-senha',
-                //     component: RecuperarSenhaComponent
-                // },
+                }
             ]
         }
     ])],

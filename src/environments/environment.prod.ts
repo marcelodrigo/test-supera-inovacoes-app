@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  loginURL: "https://dev.sitemercado.com.br/api/login"
+  loginURL: "https://dev.sitemercado.com.br/api/login",
+  hostApi: "https://localhost:44338/api/v1/"
 };

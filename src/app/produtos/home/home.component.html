@@ -1,1 +1,56 @@
-<p>home works!</p>
+<div class="col-md-10 offset-md-1 mt-4 row">
+    <div class="form-group col-md-3">
+        <label class="tit-box">Nome do Produto</label>
+        <input id="input-filtro-nome-produto" class="form-control" type="text" [(ngModel)]="filtrosConsulta.Nome">
+    </div>
+    <div class="form-group col-md-3">
+        <label class="tit-box">Valor de Venda</label>
+        <input id="input-filtro-valor-produto" class="form-control" type="text" [(ngModel)]="filtrosConsulta.Valor">
+    </div>
+    <div class="form-group col-md-1 align-self-end">
+        <button class="btn btn-primary" (click)="onPesquisarProduto()">
+            Buscar
+        </button>
+    </div>
+    <div class="form-group col-md-1 align-self-end">
+        <button id="btnCriar" class="btn btn-primary" (click)="onClickCriarProduto()">Criar</button>
+    </div>
+</div>
+<div class="col-md-10 offset-md-1 mt-4">
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nome do Produto</th>
+                <th scope="col" style="width: 20.0%">Valor de Venda</th>
+                <th scope="col">Imagem</th>
+                <th scope="col" style="width: 20.0%">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let produto of produtos; let i = index">
+                <td>{{produto.Nome}}</td>
+                <td>{{produto.Valor | moeda }}</td>
+                <!-- <td>{{produto.Valor | moeda:'BRL':'' }}</td> -->
+                <td>{{produto.Imagem}}</td>
+                <td>
+                    <button id="btnEditar" class="btn btn-secondary" (click)="onClickEditarProduto(produto.Id)">Editar</button>
+                    &nbsp;
+                    <button id="btnRemover" class="btn btn-secondary" (click)="onClickRemoverProduto(produto.Id)">Remover</button>
+                </td>
+            </tr>
+        </tbody>
+        <!-- <tfoot>
+            <nav>
+                <ul class="pagination mt-2">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
+        </tfoot> -->
+    </table>
+
+</div>

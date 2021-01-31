@@ -1,0 +1,12 @@
+<div class="col-md-10 offset-md-1 mt-4 row justify-content-center align-self-center">
+    <div class="card">
+        <h4 class="card-header">Edição</h4>
+        <div class="card-body">
+            <app-form-produto [idProduto]="idProduto" (clienteEmitter)="getProduto($event)"></app-form-produto>
+        </div>
+        <div class="card-footer">
+            <button id="btnEditar" class="btn btn-primary" (click)="onClickEditar()">Editar</button>
+            <button id="btnVoltar" class="btn btn-secondary float-right" (click)="onClickVoltar()">Voltar</button>
+        </div>
+    </div>
+</div>

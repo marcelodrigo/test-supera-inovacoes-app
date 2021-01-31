@@ -1,0 +1,14 @@
+<div>
+    <div class="form-group">
+        <label class="tit-box">Nome:</label>
+        <input type="text" class="form-control" maxlength="100" [(ngModel)]="produto.Nome" (ngModelChange)="emitModelChanged()" [disabled]="desabilitarCampos" />
+    </div>
+    <div class="form-group">
+        <label class="tit-box">Valor:</label>
+        <input type="text" class="form-control" [(ngModel)]="produto.Valor" (ngModelChange)="emitModelChanged()" [disabled]="desabilitarCampos" />
+    </div>
+    <div>
+        <label>Imagem:</label>
+        <input type="file" class="form-control" [disabled]="desabilitarCampos">
+    </div>
+</div>
