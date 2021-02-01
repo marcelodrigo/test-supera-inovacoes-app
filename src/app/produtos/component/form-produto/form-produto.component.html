@@ -8,7 +8,7 @@
     </div>
     <div class="form-group">
         <label class="tit-box">Valor:</label>
-        <input type="text" class="form-control" [(ngModel)]="produto.Valor" (ngModelChange)="emitModelChanged()" [disabled]="desabilitarCampos" />
+        <input type="number" class="form-control" [(ngModel)]="produto.Valor" (ngModelChange)="emitModelChanged()" [disabled]="desabilitarCampos" />
     </div>
     <div>
         <label>Imagem:</label>
