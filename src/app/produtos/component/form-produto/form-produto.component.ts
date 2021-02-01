@@ -1,6 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { ProdutoService } from '../../services/produto.service';
 import { ProdutoDto } from '../../dto/produto-dto';
+import { environment } from 'src/environments/environment';
+import { ViewChild } from '@angular/core';
+import { AlertService } from 'src/app/core/services/alert.service';
 
 @Component({
   selector: 'app-form-produto',
@@ -9,6 +12,7 @@ import { ProdutoDto } from '../../dto/produto-dto';
 })
 export class FormProdutoComponent implements OnInit {
 
+  @ViewChild('inputImagem') inputImagem!: ElementRef;
   @Input() idProduto?: number;
   @Input() desabilitarCampos: boolean;
 
@@ -16,7 +20,7 @@ export class FormProdutoComponent implements OnInit {
 
   produto: ProdutoDto;
 
-  constructor(private produtoService: ProdutoService) {
+  constructor(private produtoService: ProdutoService, private alertService: AlertService) {
     this.produto = new ProdutoDto();
     this.desabilitarCampos = false;
   }
@@ -35,6 +39,28 @@ export class FormProdutoComponent implements OnInit {
     else {
       this.produto = new ProdutoDto();
       this.emitModelChanged();
+    }
+  }
+
+  fileChangeEvent(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    let fileList: FileList | null = element.files;
+    if (fileList) {
+      let file = fileList.item(0);
+      if (file && file.size < environment.maxFileSizeBytes) {
+        this.alertService.clear();
+        const reader = new FileReader();
+        reader.readAsDataURL(file as Blob);
+        reader.onload = () => {
+          this.produto.Imagem = reader.result as string;
+        };
+      }
+      else {
+        let _kbMessage = environment.maxFileSizeBytes / 1000;
+        this.alertService.error(`Arquivo maior que o permitido ${_kbMessage} KB!`);
+        this.inputImagem.nativeElement.value = "";
+        this.produto.Imagem = null;
+      }
     }
   }
 

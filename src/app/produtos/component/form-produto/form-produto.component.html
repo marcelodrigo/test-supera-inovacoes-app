@@ -1,5 +1,8 @@
 <div>
     <div class="form-group">
+        <app-alert></app-alert>
+    </div>
+    <div class="form-group">
         <label class="tit-box">Nome:</label>
         <input type="text" class="form-control" maxlength="100" [(ngModel)]="produto.Nome" (ngModelChange)="emitModelChanged()" [disabled]="desabilitarCampos" />
     </div>
@@ -9,6 +12,6 @@
     </div>
     <div>
         <label>Imagem:</label>
-        <input type="file" class="form-control" [disabled]="desabilitarCampos">
+        <input #inputImagem type="file" class="form-control" (change)="fileChangeEvent($event)" [disabled]="desabilitarCampos">
     </div>
 </div>

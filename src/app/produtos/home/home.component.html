@@ -32,7 +32,7 @@
                 <td>{{produto.Nome}}</td>
                 <td>{{produto.Valor | moeda }}</td>
                 <!-- <td>{{produto.Valor | moeda:'BRL':'' }}</td> -->
-                <td>{{produto.Imagem}}</td>
+                <td><img [hidden]="!produto.Imagem" [src]="produto.Imagem" width="100" height="100" alt="N/A"></td>
                 <td>
                     <button id="btnEditar" class="btn btn-secondary" (click)="onClickEditarProduto(produto.Id)">Editar</button>
                     &nbsp;
